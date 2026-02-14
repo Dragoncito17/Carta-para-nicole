@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para Nicole 💖</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+  font-family:Arial, sans-serif;
+  overflow:hidden;
+}
+
+.card{
+  width:320px;
+  height:220px;
+  background:white;
+  border-radius:15px;
+  cursor:pointer;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  transition:0.5s;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.card.open{
+  height:500px;
+}
+
+.text{
+  opacity:0;
+  padding:20px;
+  color:#ff4d6d;
+  transition:0.5s;
+}
+
+.card.open .text{
+  opacity:1;
+}
+
+.galeria{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.galeria img{
+  width:90px;
+  border-radius:10px;
+}
+
+.heart{
+  position:absolute;
+  color:#ff4d6d;
+  font-size:20px;
+  animation:float 4s linear infinite;
+}
+
+@keyframes float{
+  from{transform:translateY(0); opacity:1;}
+  to{transform:translateY(-600px); opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+  <source src="musica.mp3.mpeg" type="audio/mpeg">
+</audio>
+
+<div class="card" onclick="abrirCarta()">
+  <div>
+    <h3>Haz clic 💌</h3>
+    <div class="text">
+      <h2>Para Nicole ❤️</h2>
+      <p>Nicole, eres la persona más especial de mi vida.</p>
+      <p>Gracias por hacerme tan feliz cada día 💕</p>
+
+      <div class="galeria">
+        <img src="foto1.jpg.jpeg">
+        <img src="foto2.jpg.jpeg">
+        <img src="foto3.jpg.jpeg">
+      </div>
+
+      <p>Te amo Nicole 💖</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function abrirCarta(){
+  document.querySelector(".card").classList.toggle("open");
+}
+
+setInterval(()=>{
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="❤";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.top="100vh";
+  document.body.appendChild(heart);
+
+  setTimeout(()=>{heart.remove();},4000);
+},500);
+</script>
+
+</body>
+</html>
